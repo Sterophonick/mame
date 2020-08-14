@@ -135,9 +135,9 @@ void gigatron_state::port_out(uint8_t data)
 
     if((m_row >= 0 && m_row < 480) && (m_col >= 0 && m_col < 640))
     {
-        uint8_t r = (out << 6) & 0xC0;
-        uint8_t g = (out << 4) & 0xC0;
-        uint8_t b = (out << 2) & 0xC0;
+        uint8_t r = (out << 6) & 0xc0;
+        uint8_t g = (out << 4) & 0xc0;
+        uint8_t b = (out << 2) & 0xc0;
         uint32_t *dest = &m_bitmap_render->pix32(m_row, m_col);
         for(uint8_t i = 0; i < 4; i++)
             *dest++ = b|(g<<8)|(r<<16);
@@ -219,11 +219,11 @@ void gigatron_state::machine_reset()
 void gigatron_state::port_outx(uint8_t data)
 {
 	//Write sound to DAC
-	m_dacoutput = (data & 0xF0) >> 4;
+	m_dacoutput = (data & 0xf0) >> 4;
 	m_dac->write(m_dacoutput);
 	
 	//Blinkenlights
-	m_lights = data & 0xF;
+	m_lights = data & 0xf;
 }
 
 void gigatron_state::gigatron(machine_config &config)
@@ -255,7 +255,7 @@ void gigatron_state::gigatron(machine_config &config)
 ROM_START( gigatron )
 	ROM_REGION( 0x20000, "maincpu", 0 )
 	ROM_SYSTEM_BIOS(0, "v5a", "Gigatron ROM v5a")
-	ROMX_LOAD( "gigrom5a.rom",  0x0000, 0x20000, CRC(DCC071A6) SHA1(F82059BA0227FF48E4C687B90C8445DA30213EE2),ROM_BIOS(0))
+	ROMX_LOAD( "gigrom5a.rom",  0x0000, 0x20000, CRC(dcc071a6) SHA1(f82059ba0227ff48e4c687b90c8445da30213ee2),ROM_BIOS(0))
 	ROM_SYSTEM_BIOS(1, "v4", "Gigatron ROM v4")
 	ROMX_LOAD( "gigrom4.rom",  0x0000, 0x20000, CRC(78995109) SHA1(2395fc48e64099836111f5aeca39ddbf4650ea4e),ROM_BIOS(1))
 	ROM_SYSTEM_BIOS(2, "v3", "Gigatron ROM v3")
