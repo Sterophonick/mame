@@ -362,6 +362,7 @@ homebrew/phunsy.cpp
 homebrew/pimps.cpp
 homebrew/ravens.cpp
 homebrew/rc2014.cpp
+homebrew/ryz80.cpp
 homebrew/sbc6510.cpp
 homebrew/sitcom.cpp
 homebrew/test_t400.cpp
