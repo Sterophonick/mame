@@ -22,7 +22,7 @@ public:
 	ryz80_state(const machine_config &mconfig, device_type type, const char *tag)
 		: driver_device(mconfig, type, tag)
 		, m_maincpu(*this, "maincpu")
-		, m_vdp(*this, "vdp")
+		, m_vdp(*this, "tms9928a")
 		, m_screen(*this, "screen")
 	{
 	}
@@ -95,8 +95,8 @@ void ryz80_state::ryz80(machine_config &config)
 }
 
 ROM_START( ryz80 )
-	ROM_REGION( 0x0000, "maincpu", 0 )
-	ROM_LOAD( "ROM_FINAL.bin",  0x0000, 0x7FFF, CRC(75F2CE3B) SHA1(abc2cddf93d3ced6da848434573f071a0992163a) )
+	ROM_REGION( 0x7FFF, "maincpu", 0 )
+	ROM_LOAD( "ryz80.bin",  0x0000, 0x7FFF, CRC(75F2CE3B) SHA1(abc2cddf93d3ced6da848434573f071a0992163a) )
 ROM_END
 
 COMP(2020, ryz80, 0, 0, ryz80, ryz80, ryz80_state, empty_init, "ry755", "Ry's Z80 Computer", MACHINE_IS_SKELETON)
